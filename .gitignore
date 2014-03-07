@@ -1,0 +1,10 @@
+# Yii
+protected/runtime/
+protected\runtime\
+# SublimeText project files
+/*.sublime-workspace
+/*.sublime-project
+\*.sublime-workspace
+\*.sublime-project
+*.sublime-workspace
+*.sublime-project
