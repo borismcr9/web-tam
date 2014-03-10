@@ -7,7 +7,14 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'TAM Consulting',
+	// user language (for Locale)
+    'language'=>'es_PE',
+    //language for messages and views
+    'sourceLanguage'=>'es_PE',
+
+    // charset to use
+    'charset'=>'utf-8',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -32,12 +39,21 @@ return array(
 
 	// application components
 	'components'=>array(
+		// desactiva el autocargado de jquery-jqueryui por Yii y setea que los scripts
+		// cargados por yii esten el head
+		'clientScript'=>array(
+	        'class' => 'CClientScript',
+	        'scriptMap' => array(
+	        	'jquery.js'=>false,
+	        	'jquery.ui.js' => false,
+	        ),
+	        'coreScriptPosition' => CClientScript::POS_HEAD,
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		/*
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
@@ -45,8 +61,8 @@ return array(
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
+			'showScriptName'=>false,
 		),
-		*/
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
@@ -85,6 +101,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'webmaster@tam-c.com',
 	),
 );
