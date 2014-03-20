@@ -1,59 +1,31 @@
 <?php /* @var $this Controller */ ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9" lang="es"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10" lang="es"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js gt-ie9" lang="es"> <!--<![endif]-->
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
-
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
-
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="description" content="<?php echo $this->pageDescription; ?>"/>
+	<meta name="language" content="es"/>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->baseUrl; ?>/favicon.ico"/>
+	<link rel="stylesheet" href="<?php echo $this->baseUrl; ?>/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="<?php echo $this->baseUrl; ?>/css/main.min.css" />
+	<script src="<?php echo $this->baseUrl; ?>/js/lib/modernizr.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="<?php echo $this->baseUrl; ?>/js/lib/respond.min.js"></script>
+	<![endif]-->
 </head>
-
 <body>
-
-<div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
-
-	<?php echo $content; ?>
-
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
-</div><!-- page -->
-
+	<?php echo $this->renderPartial('//layouts/header'); ?>
+	<main id="main-content" role="main">
+		<?php echo $content; ?>
+	</main>
+	<?php echo $this->renderPartial('//layouts/footer'); ?>
+	<script src="<?php echo $this->baseUrl; ?>/js/lib/jquery-1.11.0.min.js"></script>
+	<script src="<?php echo $this->baseUrl; ?>/js/lib/bootstrap.min.js"></script>
+	<script src="<?php echo $this->baseUrl; ?>/js/init.js"></script>
 </body>
 </html>

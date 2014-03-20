@@ -1,0 +1,36 @@
+// Estilos de contenido
+
+.descriptions-home {
+    overflow: hidden;
+    padding-top: 45px;
+    padding-bottom: 30px;
+    .description-item {
+        text-align: center;
+        a {
+            color: #005597;
+            font-weight: bold;
+            &:after {
+                content: " >> ";
+            }
+        }
+        h4 {
+            color: #005597;
+        }
+        p {
+            color: #4E4E4E;
+            font-size: 0.8571428571428571em;
+            min-height: 40px;
+        }
+        @media all and (max-width: @screen-sm-max) {
+            & {
+                margin-bottom: 20px;
+            }
+            h4 {
+                color: #005597;
+            }
+            p {
+                min-height: 0;
+            }
+        }
+    }
+}

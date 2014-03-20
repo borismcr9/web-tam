@@ -1,20 +1,30 @@
-<?php
-/* @var $this SiteController */
-
-$this->pageTitle=Yii::app()->name;
-?>
-
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
-
-<p>Congratulations! You have successfully created your Yii application.</p>
-
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<?php /* @var $this SiteController */ ?>
+<div class="container">
+    <div class="descriptions-home row">
+        <div class="description-item col-md-4">
+            <img src="<?php echo $this->baseUrl; ?>/images/foto-diferentes.jpg" />
+            <h4>Conozca qué nos hace diferentes</h4>
+            <p>
+                Ser la empresa lider en soluciones de negocios para los sectores
+                intensivos en tecnología.
+            </p>
+            <a href="#">ver más</a>
+        </div>
+        <div class="description-item col-md-4">
+            <img src="<?php echo $this->baseUrl; ?>/images/foto-soluciones.jpg" />
+            <h4>Especialistas en soluciones integrales</h4>
+            <p>
+                en el sector tecnológico y de servicios financieros.
+            </p>
+            <a href="#">ver más</a>
+        </div>
+        <div class="description-item col-md-4">
+            <img src="<?php echo $this->baseUrl; ?>/images/foto-socios.jpg" />
+            <h4>Socios estratégicos para su negocio</h4>
+            <p>
+                Conozca las ventajas que podemos ofrecerles en las áreas.
+            </p>
+            <a href="#">ver más</a>
+        </div>
+    </div>
+</div>

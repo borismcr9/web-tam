@@ -1,0 +1,369 @@
+/* Arreglo a Windows Phone 8 - Internet Explorer 10: problema diferenciando
+device width con viewport width que ocasiona que los media-queries no funcionen bien */
+
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+
+// html {
+//     min-height: 100%;
+//     position: relative;
+// }
+
+// body {
+//     margin-bottom: 200px;
+// }
+
+.header {
+    .banner {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        min-height: 160px;
+        padding: 10px 0;
+        position: relative;
+        .logo {
+            float: left;
+            img {
+                width: 120px;
+            }
+        }
+        .site-lang {
+            background-color: @blue-tam;
+            font-size: 0.8571428571428571em ; // 12px/14px
+            list-style: none;
+            margin: 0 0 0 130px; // margin para no tapar el logo en resoluciones mas bajas
+            padding: 2px 0;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+
+            @media all and (max-width: @screen-sm-max) {
+                & {
+                    top: 45px;
+                }
+            }
+
+            li {
+                display: inline-block;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                @media all and (max-width: 450px) {
+                    & {
+                        display: block;
+                    }
+                }
+
+                a {
+                    color: darken(#fff, 20%);
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+                &.active a {
+                    font-weight: bold;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .site-navigation {
+        float: right;
+        text-transform: uppercase;
+
+        @media all and (max-width: @screen-sm-max) {
+            & {
+                float: left;
+            }
+        }
+
+        .nav {
+            margin-top: 105px; // Proporcional a la altura total del contenedor (.banner)
+                @media all and (max-width: @screen-sm-max) {
+                    & {
+                        margin-top: 30px;
+                    }
+                }
+            li {
+                position: relative;
+                > a {
+                    color: #005594;
+                    padding: 5px 10px;
+                    transition: border 0.1s ease-in;
+
+                    &:hover {
+                        background-color: inherit;
+                        border-bottom: 4px solid #326559;
+                    }
+
+                    @media all and (max-width: @screen-sm-max) {
+                        & {
+                            background-color: #005594;
+                            border-bottom: 1px solid #000;
+                            color: #fff;
+                            transition: none;
+
+                            &:hover {
+                                background-color: #005594;
+                                border-bottom: 1px solid #000;
+                            }
+                        }
+                    }
+                }
+
+                .sub-nav {
+                    // display: none;
+                    display: block;
+                    visibility: hidden;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    transition: visibility,top .2s ease-out;
+                    top: 20px;
+                    z-index: 1;
+
+                    li {
+                        background-color: #326659;
+                        border-bottom: 2px solid #fff;
+                        > a {
+                            color: #fff;
+                            display: inline-block;
+                            text-decoration: none;
+                            text-transform: none;
+                            &:hover {
+                                border-bottom: none;
+                            }
+                        }
+                        &:hover {
+                            background-color: #015696;
+                        }
+                    }
+                }
+                &:hover > .sub-nav {
+                    visibility: visible;
+                    top: 30px;
+
+                    @media all and (max-width: @screen-sm-max) {
+                        & {
+                            visibility: hidden; // Solucion por ahora hasta que haga los submenu collapse
+                        }
+                    }
+                }
+            }
+        }
+        .nav-pills {
+            > li {
+
+                > a {
+                    border-radius: 0;
+                }
+
+                &.active > a,
+                &.active > a:focus,
+                &.active > a:hover {
+                    background-color: inherit;
+                    border-bottom: 4px solid #326559;
+                    color: #005595;
+                    font-weight: bold;
+                }
+
+                @media all and (max-width: @screen-sm-max) {
+                    & + li {
+                        margin-left: 0;
+                    }
+
+                    &.active > a,
+                    &.active > a:focus,
+                    &.active > a:hover {
+                        background-color: #326559;
+                        border-bottom: 3px solid darken(#fff, 20%);
+                        color: #fff;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            @media all and (max-width: @screen-sm-max) {
+                & li {
+                    width: 100%;
+                }
+            }
+        }
+        .navbar-collapse {
+            padding-left: 0;
+            @media (max-width: @screen-sm-max) {
+                & {
+                    margin-bottom: 20px;
+                }
+                &.collapse {
+                    display: none !important;
+                    &.in {
+                        display: block !important;
+                    }
+                }
+            }
+        }
+    }
+    .site-navigation-toggle {
+        background-color: #015696;
+        background-image: none;
+        border: 1px solid #FFF;
+        border-radius: 4px;
+        bottom: 15px;
+        margin-right: 15px;
+        outline: 0;
+        padding: 9px 10px;
+        position: absolute;
+        right: 0;
+
+        .icon-bar {
+            background-color: #FFF;
+            border-radius: 1px;
+            display: block;
+            height: 2px;
+            width: 22px;
+            & + .icon-bar {
+                margin-top: 4px;
+            }
+        }
+    }
+}
+
+/* Carousel base class */
+.carousel {
+    .carousel-control {
+        width: 6%;
+        .glyphicon-chevron-left:before,
+        .glyphicon-chevron-right:before {
+            background-color: #326659;
+            border-radius: 50%;
+            padding: 5px;
+        }
+        .glyphicon-chevron-left:before {
+            padding-right: 8px;
+        }
+        .glyphicon-chevron-right:before {
+            padding-left: 8px;
+        }
+    }
+    .item {
+        background-color: #666;
+        height: 240px;
+        overflow: hidden;
+    }
+}
+
+.carousel-inner {
+    > .item {
+        > img {
+            float: right;
+            max-width: none;
+            height: 100%;
+            // min-width: 100%;
+        }
+    }
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+}
+
+.footer {
+    background-color: #D1D2D4;
+    // bottom: 0;
+    // height: 200px;
+    // position: absolute;
+    // width: 100%;
+    .copyright {
+        background-color: @blue-tam;
+        color: #FFF;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .info {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .info-group {
+            border-bottom: 1px solid #4D4D4D;
+            height: 160px;
+            &:last-child {
+                border-bottom: none;
+                height: auto;
+            }
+
+            @media all and (max-width: 420px) {
+                & {
+                    width: 100%;
+                }
+            }
+
+            @media all and (min-width: @screen-md-min) {
+                & {
+                    border-bottom: none;
+                    border-right: 1px solid #4D4D4D;
+                    height: 210px;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+
+            @media all and (min-width: @screen-lg-min) {
+                & {
+                    height: 150px;
+                }
+            }
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    line-height: @line-height-base;
+                    a,
+                    span {
+                        color: #4E4E4E;
+                        font-size: 0.8571428571428571em;
+                        font-weight: normal;
+                        text-transform: capitalize;
+                    }
+                }
+                .parent {
+                    line-height: 2;
+                    > a,
+                    >span {
+                        color: #005695;
+                        font-size: 1em;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                    }
+                    > address {
+                        color: #4E4E4E;
+                        > a {
+                            font-weight: 900;
+                            text-transform: lowercase;
+                        }
+                    }
+                    .nested {
+                        line-height: 2;
+                        > a,
+                        >span {
+                            font-size: 0.9285714285714286em;
+                            font-weight: bold;
+                        }
+                        ul {
+                            padding-left: 20px;
+                            list-style: disc;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
