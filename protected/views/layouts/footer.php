@@ -91,9 +91,9 @@
                         <li class="parent">
                             <span>Contacto</span>
                             <address>
-                                Av. Republica de Panama 3563 Of. 701B<br/>
+                                Calle Las Camelias 790 Of. 702A<br/>
                                 San Isidro, Lima - Perú<br/>
-                                <abbr title="Telefono">Telf.</abbr> (511) 421-3488 <br/>
+                                <abbr title="Telefono">Telf.</abbr> (511) 421-3284 <br/>
                                 <a href="mailto:contacto@tam-c.com">contacto@tam-c.com</a>
                             </address>
                         </li>
