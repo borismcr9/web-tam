@@ -16,7 +16,20 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
 //     margin-bottom: 200px;
 // }
 
+figure {
+    img {
+        padding-top: 20px;
+    }
+}
+
+label {
+    color: #515252;
+}
+
 .header {
+    @media all and (min-width: @screen-md-min) {
+        margin-bottom: 25px;
+    }
     .banner {
         margin-top: 25px;
         margin-bottom: 10px;
@@ -75,6 +88,7 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
         @media all and (max-width: @screen-sm-max) {
             & {
                 float: left;
+                width: 100%;
             }
         }
 
@@ -136,6 +150,8 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
                                 border-bottom: none;
                             }
                         }
+
+                        &.active,
                         &:hover {
                             background-color: #015696;
                         }
@@ -192,6 +208,7 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
             }
         }
         .navbar-collapse {
+            max-height: none;
             padding-left: 0;
             @media (max-width: @screen-sm-max) {
                 & {
@@ -211,7 +228,7 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
         background-image: none;
         border: 1px solid #FFF;
         border-radius: 4px;
-        bottom: 15px;
+        bottom: 20px;
         margin-right: 15px;
         outline: 0;
         padding: 9px 10px;
@@ -232,26 +249,51 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
 }
 
 /* Carousel base class */
-.carousel {
-    .carousel-control {
-        width: 6%;
-        .glyphicon-chevron-left:before,
-        .glyphicon-chevron-right:before {
-            background-color: #326659;
-            border-radius: 50%;
-            padding: 5px;
+.wrapper-carousel{
+    background-color: #015794;
+    .carousel {
+        .carousel-control {
+            width: 6%;
+
+            // .glyphicon-chevron-left:before,
+            // .glyphicon-chevron-right:before {
+            //     background-color: #326659;
+            //     border-radius: 50%;
+            //     padding: 5px;
+            // }
+            // .glyphicon-chevron-left:before {
+            //     padding-right: 8px;
+            // }
+            // .glyphicon-chevron-right:before {
+            //     padding-left: 8px;
+            // }
+
+            @media all and (min-width: 1350px){
+                background-image: none;
+                &.left{
+                    left: -80px;
+                }
+                &.right {
+                    right: -80px;
+                }
+            }
+
+            .glyphicon-chevron-left,
+            .glyphicon-chevron-right,
+            .icon-next,
+            .icon-prev {
+                font-size: 2.5em;
+                // Ya que ahora se ocupa 50px de ancho y esta
+                // alineado a 50% se debe restar la mitad del ancho total 50/2
+                margin-top: -25px;
+                margin-left: -25px;
+            }
         }
-        .glyphicon-chevron-left:before {
-            padding-right: 8px;
+        .item {
+            background-color: #000;
+            height: 240px;
+            overflow: hidden;
         }
-        .glyphicon-chevron-right:before {
-            padding-left: 8px;
-        }
-    }
-    .item {
-        background-color: #666;
-        height: 240px;
-        overflow: hidden;
     }
 }
 
@@ -261,16 +303,42 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
             float: right;
             max-width: none;
             height: 100%;
-            // min-width: 100%;
+            min-width: 100%;
+            @media all and (max-width: @screen-xs-max) {
+                opacity: .4;
+            }
         }
     }
 }
 
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
+    bottom: 10%;
+    left: 5%;
+    padding-left: 35px;
+    padding-bottom: 20px;
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.9);
+    text-align: left;
     z-index: 10;
+    @media all and (max-width: 550px) {
+        h2 {
+            font-size: 19px;
+            padding-bottom: 10px;
+        }
+    }
+    @media all and (min-width: 551px) and (max-width: @screen-sm-max) {
+        h2 {
+            font-size: 26px;
+        }
+    }
+    @media all and (min-width: @screen-md-min) {
+        padding-left: 0;
+    }
 }
-
+.carousel-indicators {
+    bottom: 0px!important;
+    margin-bottom: 5px;
+}
 .footer {
     background-color: #D1D2D4;
     // bottom: 0;
@@ -288,7 +356,7 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
         padding-bottom: 10px;
         .info-group {
             border-bottom: 1px solid #4D4D4D;
-            height: 160px;
+            height: 170px;
             &:last-child {
                 border-bottom: none;
                 height: auto;
@@ -296,6 +364,19 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
 
             @media all and (max-width: 420px) {
                 & {
+                    height: auto;
+                    padding-top: 10px;
+                    padding-bottom: 15px;
+                    width: 100%;
+                }
+            }
+
+            @media all and (min-width: 421px) and (max-width: @screen-sm-max) {
+                padding-bottom: 10px;
+                &.more {
+                    height: auto;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
                     width: 100%;
                 }
             }
@@ -304,7 +385,7 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
                 & {
                     border-bottom: none;
                     border-right: 1px solid #4D4D4D;
-                    height: 210px;
+                    height: 225px;
                 }
 
                 &:last-child {
@@ -314,7 +395,7 @@ device width con viewport width que ocasiona que los media-queries no funcionen 
 
             @media all and (min-width: @screen-lg-min) {
                 & {
-                    height: 150px;
+                    height: 210px;
                 }
             }
 

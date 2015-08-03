@@ -10,7 +10,7 @@ var app = {
             );
             document.querySelector('head').appendChild(msViewportStyle);
         }
-        $('.carousel').carousel();
+        $('.carousel').carousel({interval: 3500});
     }
 };
 

@@ -8,3 +8,4 @@ protected\runtime\
 \*.sublime-project
 *.sublime-workspace
 *.sublime-project
+node_modules

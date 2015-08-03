@@ -1,0 +1,17 @@
+RewriteEngine on
+AddDefaultCharset UTF-8
+
+AddType application/x-font-ttf .ttf
+AddType application/x-font-woff .woff
+AddType application/x-font-eot .eot
+AddType application/x-font-svg .svg
+
+
+
+# regla para que el servidor web pueda reconocer y omitir nuestro script inicial "index.php"
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php

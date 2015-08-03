@@ -11,10 +11,33 @@ class SiteController extends BaseController
 	{
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->pageTitle .= ' | Tecnologìa a tu medida';
+		$this->pageActive = 'Inicio';
 		$this->pageDescription = 'TAM Consulting, empresa consultora de sistemas con mas de 10 años de experiencia brindando soluciones al alcance de nuestros clientes';
 		$this->render('index');
 	}
 
+	public function actionQueNosHaceDiferentes()
+	{
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->pageTitle .= ' | Tecnologìa a tu medida';
+		$this->pageActive = 'Inicio';
+		$this->pageDescription = 'Conosca que nos hace diferentes frente a nuestros principales competidores.';
+		$this->render('que-nos-hace-diferentes');
+	}
+
+	/**
+	 * This is the action to handle external exceptions.
+	 */
+	public function actionError()
+	{
+		if($error=Yii::app()->errorHandler->error)
+		{
+			if(Yii::app()->request->isAjaxRequest)
+				echo $error['message'];
+			else
+				$this->render('error', $error);
+		}
+	}
 
 	// /**
 	//  * Displays the contact page

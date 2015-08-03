@@ -20,9 +20,7 @@
 </head>
 <body>
 	<?php echo $this->renderPartial('//layouts/header'); ?>
-	<main id="main-content" role="main">
-		<?php echo $content; ?>
-	</main>
+	<?php echo $content; ?>
 	<?php echo $this->renderPartial('//layouts/footer'); ?>
 	<script src="<?php echo $this->baseUrl; ?>/js/lib/jquery-1.11.0.min.js"></script>
 	<script src="<?php echo $this->baseUrl; ?>/js/lib/bootstrap.min.js"></script>

@@ -23,6 +23,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'ext.mailer.EMailer',
 	),
 
 	'modules'=>array(
@@ -55,11 +56,15 @@ return array(
 		),
 		// uncomment the following to enable URLs in path-format
 		'urlManager'=>array(
+			'class'=>'UrlManager',
 			'urlFormat'=>'path',
 			'rules'=>array(
+				''=>'site/index',
+				'<controller:\w+>/'=>'<controller>/index',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'<controller:[\w\-]+>/<action:[\w\-]+>' => '<controller>/<action>',
 			),
 			'showScriptName'=>false,
 		),
@@ -76,6 +81,21 @@ return array(
 			'charset' => 'utf8',
 		),
 		*/
+		// Configuracion para extension YiiMail
+		'mailer' => array(
+        	'class' => 'application.extensions.mailer.EMailer',
+			'pathViews' => 'application.views._email',
+			'pathLayouts' => 'application.views._email.layouts',
+        ),
+		//Configuracion para componente SendMail (componente propio de la app)
+        'emailSender'=>array(
+	        'class'=>'SendMail',
+	        'authEmail'=>'desarrollo.tam@gmail.com',
+	        'authPwd'=>'desarrollo-',
+	        'host'=>'smtp.gmail.com',
+	        'port'=>587,
+	        'smtpSecure'=>'tls',
+	    ),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
@@ -100,7 +120,16 @@ return array(
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
-		// this is used in contact page
-		'adminEmail'=>'webmaster@tam-c.com',
+		'config' => array(
+			'global' => array(
+				'nombreEmpresa' => 'TAM Consulting',
+				'webEmpresa' => 'http://www.tam-c.com/'
+			),
+			'email' => array(
+				'adminEmail' => 'bmatos@tam-c.com',
+				'contactEmail' => 'contacto@tam-c.com',
+				'contactNameFrom' => 'Contacto TAM Consulting'
+			)
+		),
 	),
 );
