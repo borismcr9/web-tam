@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <p>
-                        Llena nuestro -------- formulario y a la brevedad nos pondremos en contacto.
+                        Llena nuestro formulario y a la brevedad nos pondremos en contacto.
                     </p>
                     <form class="form-horizontal" action="<?php echo $this->createUrl('contacto/enviar-correo/'); ?>" method="POST" role="form">
                         <div class="form-group">
