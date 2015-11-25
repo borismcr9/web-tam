@@ -1,13 +1,15 @@
 <?php
 
-class CursoGoogleAnalyticsController extends BaseController
+class CursoController extends BaseController
 {
-    public function actionIndex()
+
+    public function actionGoogleAnalytics()
     {
+        // using the default layout 'protected/views/layouts/main.php'
         $this->pageTitle .= ' | Curso Google Analytics';
-        $this->pageActive = 'Curso Google Analytics';
-        $this->pageDescription = 'Curso Google Analytics';
-        $this->render('index');
+        $this->pageActive = 'Google-Analytics';
+        $this->pageDescription = 'Curso Google Analytics.';
+        $this->render('google-analytics');
     }
 
     public function actionEnviarCorreo()
@@ -41,7 +43,7 @@ class CursoGoogleAnalyticsController extends BaseController
         }
 
 
-        if (!Yii::app()->emailSender->correoContacto($contact)) {
+        if (!Yii::app()->emailSender->correoInscripcion($contact)) {
             return $this->respuestaEmail(false, '<strong>Ops!</strong>.<span> Ocurrio un error en el envio del correo, porfavor intentelo nuevamente.</span>');
         }
 
@@ -52,6 +54,6 @@ class CursoGoogleAnalyticsController extends BaseController
     {
         Yii::app()->user->setFlash('mensaje-envio-email', $mensaje);
         Yii::app()->user->setFlash('estado-envio-email', $estado);
-        $this->redirect(array('index'));
+        $this->redirect(array('google-analytics'));
     }
 }

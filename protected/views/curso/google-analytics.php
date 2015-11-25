@@ -20,7 +20,7 @@
                         Emplee las tecnicas adecuadas para optimizar su estrategia de posicionamiento en buscadores.
                     </p>
 
-                    <form class="form-horizontal" action="<?php echo $this->createUrl('cursogoogleanalytics/enviar-correo/'); ?>"
+                    <form class="form-horizontal" action="<?php echo $this->createUrl('curso/enviar-correo/'); ?>"
                           method="POST" role="form">
                         <div class="form-group">
                             <label for="contact-names" class="col-sm-2 control-label">Nombres</label>

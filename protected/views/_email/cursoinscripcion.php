@@ -10,7 +10,7 @@
     </p>
     <p>
         <strong><i>Apellidos: </i></strong>
-        <span><?php echo $organization ?></span>
+        <span><?php echo $lastname ?></span>
     </p>
     <p>
         <strong><i>Correo: </i></strong>
@@ -18,7 +18,7 @@
     </p>
     <p>
         <strong><i>Celular: </i></strong>
-        <span><?php echo $subject ?></span>
+        <span><?php echo $cellphone ?></span>
     </p>
     <p>
         <strong><i>Consultas: </i></strong>

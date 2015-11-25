@@ -72,4 +72,24 @@ class SendMail extends CApplicationComponent
         return $send;
     }
 
+    public function correoInscripcion($contact)
+    {
+        try
+        {
+            $send         = true;
+            $controller   = Yii::app()->getController();
+            $configEmail  = $controller->getConfigEmail();
+            $asuntoEmail  = $contact['subject'];
+            $params       = $contact;
+            $this->_configMailer($configEmail['contactEmail'], $asuntoEmail);
+            Yii::app()->mailer->getView('cursoinscripcion', $params);
+            if ( !Yii::app()->mailer->Send() )
+                $send = false;
+        } catch (Exception $e)
+        {
+            $send = false;
+        }
+        return $send;
+    }
+
 }

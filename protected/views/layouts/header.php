@@ -40,7 +40,7 @@
                     </li>
                     <!-- <li><a href="#">Partnership</a></li> -->
                     <li class="<?php echo $this->checkPageActive('Contacto'); ?>"><a href="<?php echo $this->createUrl('contacto/'); ?>">Contacto</a></li>
-                    <li class="<?php echo $this->checkPageActive('Curso Google Analytics'); ?>"><a href="<?php echo $this->createUrl('cursogoogleanalytics/'); ?>">Curso Google Analytics</a></li>
+                    <li class="<?php echo $this->checkPageActive('Google-Analytics'); ?>"><a href="<?php echo $this->createUrl('curso/google-analytics'); ?>">Curso Google Analytics</a></li>
 
 					<li><a href="http://tam-c.aptitus.com/" target="_blank">Trabaja con nosotros</a></li>
 
