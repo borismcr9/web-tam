@@ -7,7 +7,7 @@
                     <?php echo Yii::app()->user->getFlash('mensaje-envio-email'); ?>
                 </div>
             <?php endif; ?>
-            <h1>Analitica Digital y Tecnicas de posicionamiento en buscadores</h1>
+            <h1>Analítica Digital y Técnicas de Posicionamiento en Buscadores</h1>
 
             <div class="row">
                 <div class="col-md-8">
