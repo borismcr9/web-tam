@@ -127,7 +127,7 @@ return array(
 			),
 			'email' => array(
 				'adminEmail' => 'bmatos@tam-c.com',
-				'contactEmail' => 'lbalarezo@tam-c.com',
+				'contactEmail' => 'Informes@tam-c.com',
 				'contactNameFrom' => 'Contacto TAM Consulting'
 			)
 		),
